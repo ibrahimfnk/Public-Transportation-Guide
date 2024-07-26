@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/styles.css')}}">
 </head>
 <body>
-    <h1>Home page</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="about.html" id="contact">Contact</a></li>
+                <li class="right">
+                    <a href="login.html" id="sign-in">Sign In</a>
+                    <a href="#" id="sign-up">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Your home page content here -->
+     
+      <div class="transportation-guide">
+            <h2>Public Transportation Guide</h2>
+           
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
