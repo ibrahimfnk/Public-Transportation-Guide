@@ -5,10 +5,7 @@ import MySQLdb.cursors
 
 app = Flask(__name__)
 
-app.config["MYSQL_HOST"] = "localhost"
-app.config["MYSQL_USER"] = "flaskadmin"
-app.config["MYSQL_PASSWORD"] = "publictransport"
-app.config["MYSQL_DB"] = "public_transportation_guide"
+app.config.from_object('config.Config')
 
 mysql = MySQL(app)
 bcrypt = Bcrypt(app)
@@ -26,7 +23,7 @@ def index():
 def register():
     return render_template('register.html')
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     return render_template('login.html')
 

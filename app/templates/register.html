@@ -1,21 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rstle.css') }}">
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <h2>Sign Up</h2>
-    <form method="POST" action="/signup">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" ><br>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index')}}" id="home">Home</a></li>
+                <li><a href="#" id="about">About</a></li>
+                <li><a href="{{ url_for('about') }}" id="contact">Contact</a></li>
+                <li class="right">
+                    <a href="{{ url_for('login') }}" id="sign-in">Sign In</a>
+                    <a href="#" class="active" id="sign-up">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <form action="">
+            <h1>Sign Up</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" placeholder="Email" required>
+                <i class='bx bxl-gmail' ></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+               <i class='bx bxs-lock'></i>
+            </div>
+            <button class="btn" type="submit">Register</button>
 
-        <label for="email">Email Id:</label>
-        <input type="text" name="email" id="email"> <br>
-        
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-    </form>
+    
+    
 </body>
 </html>
