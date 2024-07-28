@@ -8,12 +8,12 @@
 	<header>
         <nav>
             <ul>
-                <li><a href="index.html" id="home" >Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{{url_for('index')}}" id="home" >Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="#" class="active" >Contact</a></li>
                 <li class="right">
-                    <a href="login.html" id="sign-in">Sign In</a>
-                    <a href="#" id="sign-up">Sign Up</a>
+                    <a href="{{url_for('login')}}" id="sign-in">Sign In</a>
+                    <a href="{{url_for('register')}}" id="sign-up">Sign Up</a>
                 </li>
             </ul>
         </nav>
