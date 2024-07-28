@@ -15,6 +15,11 @@ class RegisterForm(FlaskForm):
     submit = SubmitField("Submit")
 
 
+class LoginForm(FlaskForm):
+    username = StringField("Username", validators=[DataRequired()])
+    password = StringField("Password", validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
 app.config.from_object('config.Config')
 
 mysql = MySQL(app)
@@ -42,7 +47,7 @@ def register():
         # Store into database
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",(username, email, password))
+        cur.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",(username, email, hashed_password))
         mysql.connection.commit()
         cur.close()
         return redirect(url_for('login'))
@@ -51,11 +56,30 @@ def register():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE username=%s", (username, ))
+        user = cur.fetchone()
+        if user and bcrypt.check_password_hash(user[3], password):
+            session['id'] = user[0]
+            return redirect(url_for('dashboard'))
+        else:
+            flash("Login Failed! Please check Username and password")
+            return redirect(url_for('login'))
+
+    return render_template('login.html', form=form)
 
 @app.route("/about")
 def about():
     return render_template('about.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
 
 if __name__ == '__main__':
