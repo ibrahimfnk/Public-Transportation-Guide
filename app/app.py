@@ -68,7 +68,7 @@ def login():
             session['id'] = user[0]
             return redirect(url_for('dashboard'))
         else:
-            flash("Login Failed! Please check Username and password")
+            flash("Login Failed! Please check Username and Password")
             return redirect(url_for('login'))
 
     return render_template('login.html', form=form)
