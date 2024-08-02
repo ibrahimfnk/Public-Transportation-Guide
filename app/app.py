@@ -5,6 +5,7 @@ import MySQLdb.cursors
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import DataRequired, Email, ValidationError
+from models import create_user, verify_user
 
 app = Flask(__name__)
 
@@ -46,10 +47,8 @@ def register():
         
         # Store into database
 
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",(username, email, hashed_password))
-        mysql.connection.commit()
-        cur.close()
+        create_user(username, email, hashed_password)
+
         return redirect(url_for('login'))
 
     return render_template('register.html', form=form)
@@ -61,16 +60,12 @@ def login():
         username = form.username.data
         password = form.password.data
 
-        cur = mysql.connection.cursor()
-        cur.execute("SELECT * FROM users WHERE username=%s", (username, ))
-        user = cur.fetchone()
-        if user and bcrypt.check_password_hash(user[3], password):
-            session['id'] = user[0]
-            return redirect(url_for('dashboard'))
+        if verify_user(username, password):
+            return redirect(url_for("dashboard"))
         else:
             flash("Login Failed! Please check Username and Password")
-            return redirect(url_for('login'))
-
+            return redirect(url_for("login"))
+        
     return render_template('login.html', form=form)
 
 @app.route("/about")
