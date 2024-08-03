@@ -50,7 +50,7 @@ nav a.active{
     
 }
 
-#sign-in, #sign-up,#home,#about {
+#sign-in, #sign-up,#home,#about,#contact:hover {
     background-color: #333;
     border: none;
     color: #fff;
@@ -60,7 +60,7 @@ nav a.active{
     border-radius: 10px;
 }
 
-#sign-in:hover, #sign-up:hover,#home:hover,#about:hover {
+#sign-in:hover, #sign-up:hover,#home:hover,#about:hover,#contact:hover {
     background-color: #444;
 }
 

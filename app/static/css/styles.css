@@ -50,7 +50,7 @@ nav a.active{
     margin-left: auto;
 }
 
-#sign-in, #sign-up,#contact,#about {
+#sign-in, #sign-up,#home,#about, #contact {
     background-color: #333;
     border: none;
     color: #fff;

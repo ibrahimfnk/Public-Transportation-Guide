@@ -11,15 +11,15 @@
 
     </head>
 <body>
- <header>
+    <header>
         <nav>
             <ul>
                 <li><a href="{{url_for('index')}}" id="home">Home</a></li>
-                <li><a href="{{url_for('about')}}">About</a></li>
+                <li><a href="{{url_for('about')}}" id="about">About</a></li>
                 <li><a href="#" id="contact">Contact</a></li>
                 <li class="right">
                     <a href="{{url_for('login')}}" id="sign-in" class="active">Sign In</a>
-                    <a href="{{url_for('register')}}" id="sign-up">Sign Up</a>
+                    <a href="{{url_for('register')}}" id="sign-up" class="active">Sign Up</a>
                 </li>
             </ul>
         </nav>
