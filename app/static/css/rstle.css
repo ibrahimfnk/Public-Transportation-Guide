@@ -116,15 +116,16 @@ nav a.active{
 .right {
     margin-left:auto;
 }
- #sign-in,#home,#contact,#about {
+#sign-in,#home,#about,#contact {
     background-color: #333;
     border: none;
     color: #fff;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
- #sign-in:hover,#home:hover,#contact:hover ,#about:hover{
+#sign-in:hover,#home:hover,#about:hover,#contact:hover {
     background-color: #444;
 }
