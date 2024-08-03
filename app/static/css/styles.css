@@ -20,6 +20,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    
     width: 100%;
 }
 
@@ -32,7 +33,7 @@ nav ul {
 }
 
 nav li {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 nav a {
@@ -49,17 +50,18 @@ nav a.active{
     margin-left: auto;
 }
 
-#sign-in, #sign-up,#contact {
+#sign-in, #sign-up,#contact,#about {
     background-color: #333;
     border: none;
     color: #fff;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 
-#sign-in:hover, #sign-up:hover ,#contact:hover{
+#sign-in:hover, #sign-up:hover ,#contact:hover,#about:hover,#home:hover{
     background-color: #444;
 }
 
