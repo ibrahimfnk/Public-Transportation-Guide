@@ -4,7 +4,7 @@ from flask_bcrypt import Bcrypt
 import MySQLdb.cursors
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email
 from models import create_user, verify_user
 
 app = Flask(__name__)
