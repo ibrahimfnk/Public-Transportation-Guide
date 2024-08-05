@@ -23,6 +23,13 @@
 
     <main>
         <h1>Maps Integration</h1>
+
+        {% if user %}
+        <ul>
+            <li>Name: {{ user[1] }}</li>
+        </ul>
+        {% endif %}
+
     </main>
 </body>
 </html>

@@ -74,7 +74,18 @@ def about():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    if 'id' in session:
+        id = session['id']
+
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE id=%s ", (id, ))
+        user = cur.fetchone()
+        cur.close()
+
+        if user:
+            return render_template('dashboard.html', user = user)
+
+    return redirect('login')
 
 
 if __name__ == '__main__':
