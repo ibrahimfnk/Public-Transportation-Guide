@@ -26,28 +26,28 @@
 
 
     <div class="wrapper">
-        <form acton="">
-            <h1>login</h1>
+        <form action="{{url_for('login')}}" method="POST">
+            {{ form.hidden_tag() }}
+            <h1>Login</h1>
             <div class="input-box">
-                <input type="text" placeholder="username" required>
+                {{ form.username.label(for='Username') }}
+                {{ form.username() }}
                 <i class='bx bxs-user-rectangle'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                {{ form.password.label(for='Username') }}
+                {{ form.password() }}
                 <i class='bx bxs-lock'></i>
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox" id="check">Remember me</label>
-                <a href="#">Forgot Password?</a>
+                <a href="{{url_for('register')}}">Forgot Password?</a>
             </div>
-            <button class="btn" type="submit">Login</button>
+            {{ form.submit(class='btn') }}
             <div class="register-link">
                 <p>Don't have an account?
-                    <a href="#">
-                        Register
-
-
-                </a></p>
+                    <a href="register"></a>
+                </p>
             </div>
         </form>
     </div>
